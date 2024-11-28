@@ -76,5 +76,3 @@ firebase-debug.*.log
 # Optional Typescript cache
 *.tsbuildinfo
 
-# Ignore package-lock.json
-/package-lock.json
