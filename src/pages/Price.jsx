@@ -1,61 +1,111 @@
-import './../App.css';
+import "./../App.css";
 
 const Price = () => {
-    return (
-      <div>
-        <div className='page-background paragraph-container'>
-          <h1 className='page-header padded-header'>The price for a kitten is 1200 - 2600 CAD.</h1>
-          <h2 className='page-subheader padded-header'>What the price includes:</h2>
-          <ul className='list-container'>
-            <li>Two sets of vaccines</li>
-            <li>Spay/neuter surgery</li>
-            <li>Microchips</li>
-            <li>Deworming at least two times, more if needed</li>
-            <li>72 hour general health guarantee</li>
-            <li>2 year genetic health guarantee</li>
-            <li>Litter training</li>
-            <li>Legal and binding contract</li>
-            <li>TICA papers (after proof of spay)</li>
-            <li>Food samples</li>
-            <li>Royal Canin kit for new owners</li>
-            <li>Favourite toy</li>
-            <li>Blanket with a scent of home</li>
-            <li>Instructions and support</li>
-            <li>30 days free pet insurance with Trupanion</li>
-          </ul>
-        </div>
-        <div className='page-background paragraph-container'>
-          <h1 className='page-header padded-header'>General health guarantee</h1>
-          <p>
-            The Seller will provide Purchaser with documented vaccinations, deworming, and veterinarian records.
-          </p>
-          <p>
-            The Seller guarantees the Kitten to be in good health at the time of purchase for a period of 72 hours.
-          </p>
-          <p>
-            It will be the responsibility of the Purchaser to have the Kitten examined by a veterinarian within 72 hours.
-          </p>
-          <p>
-            Within that 72 hours period, if found to be seriously ill, the Seller will take the Kitten back and refund payment, minus the deposit, under the following conditions: the Seller is provided with proper documentation, from a licensed veterinarian, stating the medical issue and that the Kitten is seriously medically deficient; a second examination by a veterinarian of the Seller’s choice confirms these claims.
-          </p>
-          <p>
-            This Kitten is not guaranteed against respiratory disease, fleas, ringworms or any parasitic disease, environmental stress (such as diarrhea etc.) and disease caused by dietary changes.
-          </p>
-          <p>
-            After the 72 hour period, the Seller can no longer guarantee the Kitten’s health, except for birth defects.
-          </p>
-        </div>
-        <div className='page-background paragraph-container'>
-          <h1 className='page-header padded-header'>Genetic health guarantee</h1>
-          <p>
-            The Seller guarantees the Kitten against lethal genetic or congenital defects for 24 months following the date of purchase.
-          </p>
-          <p>
-            If, during these 24 months, the Kitten should die or have to be put down due to a genetic or congenital defect, the Seller will replace the Kitten with a Kitten at the Seller’s earliest convenience, should the following conditions be met: the Purchaser provides the Seller with a necropsy by a licensed impartial Veterinary Pathologist, at the Purchaser’s expense, stating that the cause of death is unquestionably a genetic or congenital defect; a second examination by a veterinarian of the Seller’s choice confirms these claims.
-          </p>
-        </div>
-      </div>
-    );
-  };
+  return (
+    <main className="page-background paragraph-container">
+      <h2 className="page-header">Health Guarantee</h2>
+
+      {/* General Health Guarantee Section */}
+      <section className="section-text">
+        <h3 className="page-subheader">General Health Guarantee</h3>
+        <ul className="list-container">
+          <li>
+            We will provide comprehensive documentation, including the kitten's
+            vaccination records, deworming treatments, and veterinary reports at
+            the time of transfer.
+          </li>
+          <li>
+            The kitten is guaranteed to be in good health at the time of
+            transfer and for a period of 72 hours thereafter.
+          </li>
+          <li>
+            You are required to have the kitten examined by a licensed
+            veterinarian within 72 hours of transfer.
+          </li>
+          <li>
+            If, during this period, the kitten is found to have a serious
+            medical condition, we will accept its return and provide a refund,
+            excluding the deposit, provided the following conditions are met:
+            <ul>
+              <li>
+                You supply official documentation from a licensed veterinarian
+                detailing the medical condition and confirming the kitten’s
+                severe medical deficiency.
+              </li>
+              <li>
+                A second examination by a veterinarian of our choice validates
+                these findings.
+              </li>
+            </ul>
+          </li>
+          <li>
+            This guarantee does not cover respiratory illnesses, fleas,
+            ringworms, parasitic infections, environmental stress (e.g.,
+            diarrhea), or conditions arising from dietary changes.
+          </li>
+          <li>
+            Beyond the 72-hour period, we cannot guarantee the kitten's health,
+            except in cases involving birth defects.
+          </li>
+        </ul>
+      </section>
+
+      {/* Genetic Health Guarantee Section */}
+      <section className="section-text">
+        <h3 className="page-subheader">Genetic Health Guarantee</h3>
+        <ul className="list-container">
+          <li>
+            The kitten is guaranteed against lethal genetic or congenital
+            defects for a period of 24 months from the date of purchase.
+          </li>
+          <li>
+            If the kitten passes away or requires euthanasia due to a genetic or
+            congenital defect within this period, we will provide a replacement
+            kitten under the following conditions:
+            <ul>
+              <li>
+                A necropsy report from a licensed, impartial veterinary
+                pathologist confirms the defect as the cause of death. This
+                report will be conducted at our expense.
+              </li>
+              <li>
+                A second examination by a veterinarian of our choice
+                corroborates these findings.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      {/* Additional Benefits Section */}
+      <section className="section-text">
+        <h3 className="page-subheader">Included with Your Kitten</h3>
+        <ul className="list-container">
+          <li>Two sets of vaccines</li>
+          <li>Spay/neuter surgery</li>
+          <li>Microchip implantation</li>
+          <li>Deworming (at least twice, more if necessary)</li>
+          <li>72-hour general health guarantee</li>
+          <li>2-year genetic health guarantee</li>
+          <li>Litter training</li>
+          <li>Legal and binding contract</li>
+          <li>
+            TICA registration papers (provided after proof of spay/neuter)
+          </li>
+          <li>Food samples</li>
+          <li>Royal Canin new owner’s kit</li>
+          <li>Kitten’s favorite toy</li>
+          <li>A blanket with the scent of their home</li>
+          <li>Detailed instructions and ongoing support</li>
+          <li>30 days of complimentary pet insurance with Trupanion</li>
+        </ul>
+
+        <h3 className="page-subheader">
+          The price for a kitten ranges between CAD 2,000 and CAD 3,500
+        </h3>
+      </section>
+    </main>
+  );
+};
 
 export default Price;

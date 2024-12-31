@@ -1,59 +1,66 @@
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { ref, getDownloadURL, listAll } from 'firebase/storage';
-import { db, storage } from '../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
+import { db, storage } from "../firebase";
 
 export async function queryCats(table, predicate = []) {
-    const cats = [];
-    const collectionRef = collection(db, table);
-    const queryArgs = [collectionRef];
-    var q;
+  const cats = [];
+  const collectionRef = collection(db, table);
+  const queryArgs = [collectionRef];
+  var q;
 
-    if (predicate.length === 3) {
-        queryArgs.push(where(...predicate));   
-    }
+  if (predicate.length === 3) {
+    queryArgs.push(where(...predicate));
+  }
 
-    q = query(...queryArgs);
-    const docRefs = await getDocs(q);
+  q = query(...queryArgs);
+  const docRefs = await getDocs(q);
 
-    docRefs.forEach(doc => {
-        const cat = doc.data();
-        cats.push({...cat, id: doc.id});
-    })
-    
-    return cats;
+  docRefs.forEach((doc) => {
+    const cat = doc.data();
+    cats.push({ ...cat, id: doc.id });
+  });
+
+  return cats;
 }
 
 export async function getImage(filepath) {
-    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`));
+  const url = getDownloadURL(
+    ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`)
+  );
 
-    return url;
+  return url;
 }
 
 export async function getAllImages(filepath) {
-    const images = [];
-    const storageRef = ref(storage, filepath);
-    const result = await listAll(storageRef);
-    
-    result.items.forEach(image => {
-        images.push(image.fullPath);
-    })
+  const images = [];
+  const storageRef = ref(storage, filepath);
+  const result = await listAll(storageRef);
 
-    return images;
-  }
+  result.items.forEach((image) => {
+    images.push(image.fullPath);
+  });
+
+  return images;
+}
 
 export async function getFirstImage(filepath) {
-    const storageRef = ref(storage, filepath);
-    const result = await listAll(storageRef);
-    const image = result.items[0].fullPath;
+  const storageRef = ref(storage, filepath);
+  const result = await listAll(storageRef);
+  const image = result.items[0].fullPath;
 
-    return image;
+  return image;
 }
 
 export async function getList(listName) {
-    const list = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`))
-        .then(url => fetch(url))
-        .then(result => result.json())
-        .then(data => {return data});
-
-    return list;
+  try {
+    const storageRef = ref(storage, `Lists/${listName}`);
+    const url = await getDownloadURL(storageRef);
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log("Fetched List Data:", data); // Debug log
+    return data;
+  } catch (error) {
+    console.error("Error fetching list:", error); // Error log
+    return [];
+  }
 }

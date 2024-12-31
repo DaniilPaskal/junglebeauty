@@ -1,51 +1,39 @@
-import Carousel from 'react-multi-carousel';
-import CatCard from './CatCard';
-import './../App.css';
+import Carousel from "react-multi-carousel";
+import CatCard from "./CatCard";
+import "./../App.css";
 
-const CatCardCarousel = ({ cats, autoplay = false, contained = true, small = false }) => {  
-
+const CatCardCarousel = ({ cats, autoplay = false, small = false }) => {
   return (
-    <Carousel className={`cat-card-carousel ${contained && `cat-card-carousel-container`}`}
-      autoPlay={autoplay}
+    <Carousel
+      className="cat-card-carousel"
+      autoPlay={false}
       autoPlaySpeed={5000}
       draggable
       infinite
+      showDots
       responsive={{
         desktop: {
-          breakpoint: {
-            max: 3000,
-            min: 1024
-          },
-          items: 3,
-        },
-        mobile: {
-          breakpoint: {
-            max: 464,
-            min: 0
-          },
-          items: 1,
-          partialVisibilityGutter: 30
+          breakpoint: { max: 3000, min: 1300 },
+          items: 3, // 3 cards for desktop
+          partialVisibilityGutter: 20,
         },
         tablet: {
-          breakpoint: {
-            max: 1024,
-            min: 464
-          },
-          items: 2,
-          partialVisibilityGutter: 30    
-        }
+          breakpoint: { max: 1300, min: 600 },
+          items: 2, // 2 cards for tablet
+          partialVisibilityGutter: 15,
+        },
+        mobile: {
+          breakpoint: { max: 600, min: 0 },
+          items: 1, // 1 card for mobile
+          partialVisibilityGutter: 10,
+        },
       }}
-      rewind={false}
-      showDots
-      >
-
-      {cats.map((cat) => {
-        return (
-          <div key={cat.id}>
-            <CatCard cat={cat} size={small ? 'small' : 'large'} />
-          </div>
-        )
-      })}
+    >
+      {cats.map((cat) => (
+        <div key={cat.id} className="cat-card-wrapper">
+          <CatCard cat={cat} />
+        </div>
+      ))}
     </Carousel>
   );
 };

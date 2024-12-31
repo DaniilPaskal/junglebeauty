@@ -1,49 +1,57 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CatsProvider } from './contexts/CatsContext';
-import Home from './pages/Home';
-import Queens from './pages/Queens';
-import Kings from './pages/Kings';
-import Kittens from './pages/Kittens';
-import News from './pages/News';
-import FAQ from './pages/FAQ';
-import Articles from './pages/Articles';
-import AboutBengals from './pages/AboutBengals';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import WhyChoose from './pages/WhyChoose';
-import BuySellAgreement from './pages/BuySellAgreement';
-import Price from './pages/Price';
-import PrepareForKitten from './pages/PrepareForKitten';
-import Visit from './pages/Visit';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import ScrollToTop from './hooks/ScrollToTop';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CatsProvider } from "./contexts/CatsContext";
+import Home from "./pages/Home";
+import Queens from "./pages/Queens";
+import Kings from "./pages/Kings";
+import Kittens from "./pages/Kittens";
+import News from "./pages/News";
+import FAQ from "./pages/FAQ";
+import Articles from "./pages/Articles";
+import AboutBengals from "./pages/AboutBengals";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import WhyChoose from "./pages/WhyChoose";
+import BuySellAgreement from "./pages/BuySellAgreement";
+import Price from "./pages/Price";
+import PrepareForKitten from "./pages/PrepareForKitten";
+import Visit from "./pages/Visit";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import ScrollToTop from "./hooks/ScrollToTop";
+import "./App.css";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <ScrollToTop />
       <CatsProvider>
-        <div className='App'>
+        <div className="App">
           <Navigation />
-          <div className='page-content'>
+          <div className="page-content">
             <Routes>
-              <Route exact index element={<Home />} />
-              <Route exact path='queens' element={<Queens />} />
-              <Route exact path='kings' element={<Kings />} />
-              <Route exact path='kittens' element={<Kittens />} />
-              <Route exact path='news' element={<News />} />
-              <Route exact path='faq' element={<FAQ />} />
-              <Route exact path='articles' element={<Articles />} />
-              <Route exact path='about-bengals' element={<AboutBengals />} />
-              <Route exact path='about-us' element={<About />} />
-              <Route exact path='contact' element={<Contact />} />
-              <Route exact path='why-choose-junglebeauty' element={<WhyChoose />} />
-              <Route exact path='buy-sell-agreement' element={<BuySellAgreement />} />
-              <Route exact path='price' element={<Price />} />
-              <Route exact path='preparing-for-coming-kitten' element={<PrepareForKitten />} />
-              <Route exact path='visit-junglebeauty' element={<Visit />} />
+              <Route index element={<Home />} />
+              <Route path="queens" element={<Queens />} />
+              <Route path="kings" element={<Kings />} />
+              <Route path="kittens" element={<Kittens />} />
+              <Route path="news" element={<News />} />
+              <Route path="faq" element={<FAQ />} />
+              <Route path="articles" element={<Articles />} />
+              <Route path="about-bengals" element={<AboutBengals />} />
+              <Route path="about-us" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="why-choose-junglebeauty" element={<WhyChoose />} />
+              <Route path="buy-sell-agreement" element={<BuySellAgreement />} />
+              <Route path="price" element={<Price />} />
+              <Route
+                path="preparing-for-coming-kitten"
+                element={<PrepareForKitten />}
+              />
+              <Route path="visit-junglebeauty" element={<Visit />} />
             </Routes>
           </div>
           <Footer />

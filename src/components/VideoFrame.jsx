@@ -1,13 +1,15 @@
 const VideoFrame = ({ id }) => {
-    return (
-        <iframe className='video-frame'
-        src={'https://www.youtube.com/embed/' + id}
-        frameBorder='0'
-        allow='autoplay; encrypted-media'
+  return (
+    <div className="video-frame-container">
+      <iframe
+        className="video-frame"
+        src={"https://www.youtube.com/embed/" + id}
+        allow="autoplay; encrypted-media"
         allowFullScreen
-        title='video'
-        />
-    );
-}
+        title="video"
+      />
+    </div>
+  );
+};
 
 export default VideoFrame;
