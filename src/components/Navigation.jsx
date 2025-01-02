@@ -43,9 +43,12 @@ const Navigation = () => {
             <NavLink className="nav-link" onClick={handleToggle} to="/kittens">
               Kittens
             </NavLink>
+            {/* Temporarily hide the News tab */}
+            {/* 
             <NavLink className="nav-link" onClick={handleToggle} to="/news">
               News
-            </NavLink>
+            </NavLink> 
+            */}
             <NavLink className="nav-link" onClick={handleToggle} to="/about-us">
               About
             </NavLink>
