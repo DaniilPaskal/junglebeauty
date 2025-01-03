@@ -49,5 +49,9 @@
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "react-router-dom": "^6.14.1"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
   }
 }
